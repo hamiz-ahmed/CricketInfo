@@ -8,5 +8,7 @@
 	<string>loadUserService</string>
 	<key>2</key>
 	<string>loadCheckInService</string>
+	<key>3</key>
+	<string>loadMatchService</string>
 </dict>
 </plist>

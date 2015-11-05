@@ -18,8 +18,16 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
-    // Configure interface objects here.
+    
+    if(WCSession.isSupported){
+        WCSession* session = WCSession.defaultSession;
+        session.delegate = self;
+        [session activateSession];
+        
+    }
+    
+    
+    
 }
 
 - (void)willActivate {
@@ -30,6 +38,29 @@
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+}
+
+- (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *, id> *)message replyHandler:(void(^)(NSDictionary<NSString *, id> *replyMessage))replyHandler
+{
+    
+    if(message){
+        
+        NSDictionary* messageReceived = message;
+        NSLog(@"Received Message in watch: %@",messageReceived);
+//       // [self.replyLabel setText:command];
+//        
+//        NSString* otherCounter = [message objectForKey:@"counter"];
+//        
+//        
+//        NSDictionary* response = @{@"response" : [NSString stringWithFormat:@"Message %@ received.",otherCounter]} ;
+//        
+//        
+//        if (replyHandler != nil) replyHandler(response);
+//        
+        
+    }
+    
+    
 }
 
 @end

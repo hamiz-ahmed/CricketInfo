@@ -9,7 +9,7 @@
 #import "Enum.h"
 
 //#define SERVICE_URL @"http://api.socialradar.com"
-#define SERVICE_URL         @"http://private-3bb6f-mboconnect.apiary-mock.com/v1.0/"
+#define SERVICE_URL         @"http://cricscore-api.appspot.com"
 
 #define REGULAR_FONT        @"UniversLTPro-55Roman"
 #define BOLD_FONT           @"UniversLTPro-65Bold"

@@ -31,6 +31,14 @@
     self.checkIn = [[CheckInService alloc] init];
 }
 
+
+-(void)loadMatchService{
+    if(self.matchService != nil)
+        return;
+    
+    self.matchService = [[MatchService alloc] init];
+}
+
 #pragma mark setup
 
 - (void)load:(NSArray*)services{

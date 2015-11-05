@@ -86,6 +86,12 @@
 		4EEFD8351BEB58D80032FE82 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEFD8341BEB58D80032FE82 /* GlanceController.m */; };
 		4EEFD8371BEB58D80032FE82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEFD8361BEB58D80032FE82 /* Assets.xcassets */; };
 		4EEFD83B1BEB58D80032FE82 /* WatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4EEFD8171BEB58D80032FE82 /* WatchApp.app */; };
+		A277C76F1BEB5E84007E7A93 /* MatchListView.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C76E1BEB5E84007E7A93 /* MatchListView.m */; };
+		A277C7721BEB5EC3007E7A93 /* MatchListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A277C7711BEB5EC3007E7A93 /* MatchListView.xib */; };
+		A277C7761BEB5EE7007E7A93 /* MatchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C7751BEB5EE7007E7A93 /* MatchListController.m */; };
+		A277C77A1BEB60D3007E7A93 /* MatchService.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C7791BEB60D3007E7A93 /* MatchService.m */; };
+		A277C77E1BEB61AD007E7A93 /* MatchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C77D1BEB61AD007E7A93 /* MatchResponse.m */; };
+		A277C7811BEB61E7007E7A93 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C7801BEB61E7007E7A93 /* Match.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +291,17 @@
 		4EEFD8341BEB58D80032FE82 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
 		4EEFD8361BEB58D80032FE82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EEFD8381BEB58D80032FE82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A277C76D1BEB5E84007E7A93 /* MatchListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchListView.h; sourceTree = "<group>"; };
+		A277C76E1BEB5E84007E7A93 /* MatchListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchListView.m; sourceTree = "<group>"; };
+		A277C7711BEB5EC3007E7A93 /* MatchListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchListView.xib; sourceTree = "<group>"; };
+		A277C7741BEB5EE7007E7A93 /* MatchListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchListController.h; sourceTree = "<group>"; };
+		A277C7751BEB5EE7007E7A93 /* MatchListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchListController.m; sourceTree = "<group>"; };
+		A277C7781BEB60D3007E7A93 /* MatchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchService.h; sourceTree = "<group>"; };
+		A277C7791BEB60D3007E7A93 /* MatchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchService.m; sourceTree = "<group>"; };
+		A277C77C1BEB61AD007E7A93 /* MatchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchResponse.h; sourceTree = "<group>"; };
+		A277C77D1BEB61AD007E7A93 /* MatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResponse.m; sourceTree = "<group>"; };
+		A277C77F1BEB61E7007E7A93 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		A277C7801BEB61E7007E7A93 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +378,8 @@
 				0B7209231A0AAE3F00162F8D /* UsersResponse.m */,
 				0B7209331A0AB8C600162F8D /* StringResponse.h */,
 				0B7209341A0AB8C600162F8D /* StringResponse.m */,
+				A277C77C1BEB61AD007E7A93 /* MatchResponse.h */,
+				A277C77D1BEB61AD007E7A93 /* MatchResponse.m */,
 			);
 			path = ServiceResponse;
 			sourceTree = "<group>";
@@ -457,6 +476,8 @@
 				42A74C1218ED8981002F24EE /* User.m */,
 				0B7209111A0AA34700162F8D /* Country.h */,
 				0B7209121A0AA34700162F8D /* Country.m */,
+				A277C77F1BEB61E7007E7A93 /* Match.h */,
+				A277C7801BEB61E7007E7A93 /* Match.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -561,6 +582,7 @@
 		42F60C1018ED3ED100F2A00F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A277C7731BEB5ED2007E7A93 /* MatchList */,
 				0B7209141A0AA66700162F8D /* Registration */,
 				42F60C1F18ED3F4900F2A00F /* Login */,
 				42F60C1318ED3EDB00F2A00F /* Base */,
@@ -571,6 +593,7 @@
 		42F60C1118ED3ED100F2A00F /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A277C7771BEB60A9007E7A93 /* Match */,
 				0B72091E1A0AAAB500162F8D /* CheckIn */,
 				42035D6A18EE72E100237D90 /* User */,
 				42035D6918EE72DB00237D90 /* Auth */,
@@ -583,6 +606,7 @@
 		42F60C1218ED3ED100F2A00F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A277C7701BEB5EAC007E7A93 /* MatchList */,
 				0B7209181A0AA74C00162F8D /* Registration */,
 				42F60C2318ED3F6F00F2A00F /* Login */,
 				42F60C1518ED3EEC00F2A00F /* Base */,
@@ -793,6 +817,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A277C7701BEB5EAC007E7A93 /* MatchList */ = {
+			isa = PBXGroup;
+			children = (
+				A277C76D1BEB5E84007E7A93 /* MatchListView.h */,
+				A277C76E1BEB5E84007E7A93 /* MatchListView.m */,
+				A277C7711BEB5EC3007E7A93 /* MatchListView.xib */,
+			);
+			name = MatchList;
+			sourceTree = "<group>";
+		};
+		A277C7731BEB5ED2007E7A93 /* MatchList */ = {
+			isa = PBXGroup;
+			children = (
+				A277C7741BEB5EE7007E7A93 /* MatchListController.h */,
+				A277C7751BEB5EE7007E7A93 /* MatchListController.m */,
+			);
+			name = MatchList;
+			sourceTree = "<group>";
+		};
+		A277C7771BEB60A9007E7A93 /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				A277C7781BEB60D3007E7A93 /* MatchService.h */,
+				A277C7791BEB60D3007E7A93 /* MatchService.m */,
+			);
+			name = Match;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -924,6 +976,7 @@
 				0B72091A1A0AA76200162F8D /* RegistrationView.xib in Resources */,
 				42F60BE218ED3DE600F2A00F /* InfoPlist.strings in Resources */,
 				42F60C2518ED40FE00F2A00F /* LoginView.xib in Resources */,
+				A277C7721BEB5EC3007E7A93 /* MatchListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -969,11 +1022,13 @@
 				0B7209351A0AB8C600162F8D /* StringResponse.m in Sources */,
 				4E20D3851BB13C7900229C7D /* AFURLRequestSerialization.m in Sources */,
 				4E20D3811BB13C7900229C7D /* AFHTTPSessionManager.m in Sources */,
+				A277C76F1BEB5E84007E7A93 /* MatchListView.m in Sources */,
 				4E20D38E1BB13C7900229C7D /* UIRefreshControl+AFNetworking.m in Sources */,
 				0B72091D1A0AA77900162F8D /* RegistrationView.m in Sources */,
 				0B72092E1A0AB46100162F8D /* TextField.m in Sources */,
 				4E20D38D1BB13C7900229C7D /* UIProgressView+AFNetworking.m in Sources */,
 				4E20D3841BB13C7900229C7D /* AFURLConnectionOperation.m in Sources */,
+				A277C77E1BEB61AD007E7A93 /* MatchResponse.m in Sources */,
 				42035D8018EE7C2B00237D90 /* HttpRequestManager.m in Sources */,
 				42F60C3818ED669000F2A00F /* AuthService.m in Sources */,
 				4E32DC9C1B32953A00B897D7 /* AFHTTPRequestOperation+CustomProperties.m in Sources */,
@@ -987,9 +1042,11 @@
 				42F60C7818ED688700F2A00F /* Font.m in Sources */,
 				4E20D38A1BB13C7900229C7D /* UIAlertView+AFNetworking.m in Sources */,
 				42A74C0718ED868D002F24EE /* UserService.m in Sources */,
+				A277C7811BEB61E7007E7A93 /* Match.m in Sources */,
 				4E20D3881BB13C7900229C7D /* AFNetworkActivityIndicatorManager.m in Sources */,
 				4E20D38B1BB13C7900229C7D /* UIButton+AFNetworking.m in Sources */,
 				4E20D3801BB13C7900229C7D /* AFHTTPRequestOperationManager.m in Sources */,
+				A277C77A1BEB60D3007E7A93 /* MatchService.m in Sources */,
 				42A74C0C18ED86CB002F24EE /* BaseService.m in Sources */,
 				0B72092D1A0AB46100162F8D /* Label.m in Sources */,
 				42F60C7918ED688700F2A00F /* ParserUtils.m in Sources */,
@@ -1003,6 +1060,7 @@
 				0B7209071A0AA1D400162F8D /* BaseEntity.m in Sources */,
 				0B72090C1A0AA24900162F8D /* BaseResponse.m in Sources */,
 				4E2CAD4B1B1C20BA007143D8 /* DateUtils.m in Sources */,
+				A277C7761BEB5EE7007E7A93 /* MatchListController.m in Sources */,
 				0B72092C1A0AB46100162F8D /* Button.m in Sources */,
 				4E20D3821BB13C7900229C7D /* AFNetworkReachabilityManager.m in Sources */,
 				42F60C1B18ED3F2500F2A00F /* BaseView.m in Sources */,
@@ -1350,6 +1408,7 @@
 				4EEFD83E1BEB58D80032FE82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EEFD8401BEB58D80032FE82 /* Build configuration list for PBXNativeTarget "WatchApp" */ = {
 			isa = XCConfigurationList;
@@ -1358,6 +1417,7 @@
 				4EEFD8421BEB58D80032FE82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
