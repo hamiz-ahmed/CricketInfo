@@ -12,6 +12,6 @@
 #define kMethodGetUser  @"users/me"
 @implementation MatchService
 -(void)getMatches:(successCallback)success andfailure:(failureCallback)failure{
-    [http get:kMethodGetMatches success:success failure:false response:[MatchResponse new]];
+    [http get:kMethodGetMatches success:success failure:false response:nil];
 }
 @end

@@ -36,9 +36,9 @@
 
 -(void)getMatchList{
     [service.matchService getMatches:^(id response) {
-        NSArray *list = [(MatchResponse*)response getList];
-        NSDictionary* messageToSend = list.firstObject;
-        [self sendMessageToWatch:messageToSend];
+//        NSArray *list = [(MatchResponse*)response getList];
+//        NSDictionary* messageToSend = list.firstObject;
+        [self sendMessageToWatch:response];
     } andfailure:^(NSError *error) {
         
     }];
