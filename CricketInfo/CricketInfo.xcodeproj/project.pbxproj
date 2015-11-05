@@ -929,18 +929,18 @@
 				ORGANIZATIONNAME = mohsin;
 				TargetAttributes = {
 					42F60BD318ED3DE600F2A00F = {
-						DevelopmentTeam = CLXH3E5RD8;
+						DevelopmentTeam = HUG6Z52JD6;
 					};
 					42F60BF418ED3DE600F2A00F = {
 						TestTargetID = 42F60BD318ED3DE600F2A00F;
 					};
 					4EEFD8161BEB58D80032FE82 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = CLXH3E5RD8;
+						DevelopmentTeam = HUG6Z52JD6;
 					};
 					4EEFD8221BEB58D80032FE82 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = CLXH3E5RD8;
+						DevelopmentTeam = HUG6Z52JD6;
 					};
 				};
 			};
@@ -1228,7 +1228,7 @@
 					"SHOW_DEALLOC_LOG=1",
 				);
 				INFOPLIST_FILE = "CricketInfo/CricketInfo-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tenpearls.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.CricketInfo;
 				PRODUCT_NAME = CricketInfo;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1243,7 +1243,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CricketInfo/CricketInfo-Prefix.pch";
 				INFOPLIST_FILE = "CricketInfo/CricketInfo-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tenpearls.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.CricketInfo;
 				PRODUCT_NAME = CricketInfo;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1295,7 +1295,7 @@
 				INFOPLIST_FILE = "WatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tenpearls.CricketInfo.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.CricketInfo.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1317,7 +1317,7 @@
 				INFOPLIST_FILE = "WatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tenpearls.CricketInfo.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.CricketInfo.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1339,7 +1339,7 @@
 				IBSC_MODULE = WatchApp_Extension;
 				INFOPLIST_FILE = WatchApp/Info.plist;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tenpearls.CricketInfo.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.CricketInfo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1362,7 +1362,7 @@
 				IBSC_MODULE = WatchApp_Extension;
 				INFOPLIST_FILE = WatchApp/Info.plist;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tenpearls.CricketInfo.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.CricketInfo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
