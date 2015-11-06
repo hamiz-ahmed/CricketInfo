@@ -86,12 +86,15 @@
 		4EEFD8351BEB58D80032FE82 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEFD8341BEB58D80032FE82 /* GlanceController.m */; };
 		4EEFD8371BEB58D80032FE82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEFD8361BEB58D80032FE82 /* Assets.xcassets */; };
 		4EEFD83B1BEB58D80032FE82 /* WatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4EEFD8171BEB58D80032FE82 /* WatchApp.app */; };
+		A256D90A1BECBD1D00C58981 /* MatchDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A256D9091BECBD1D00C58981 /* MatchDetailController.m */; };
 		A277C76F1BEB5E84007E7A93 /* MatchListView.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C76E1BEB5E84007E7A93 /* MatchListView.m */; };
 		A277C7721BEB5EC3007E7A93 /* MatchListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A277C7711BEB5EC3007E7A93 /* MatchListView.xib */; };
 		A277C7761BEB5EE7007E7A93 /* MatchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C7751BEB5EE7007E7A93 /* MatchListController.m */; };
 		A277C77A1BEB60D3007E7A93 /* MatchService.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C7791BEB60D3007E7A93 /* MatchService.m */; };
 		A277C77E1BEB61AD007E7A93 /* MatchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C77D1BEB61AD007E7A93 /* MatchResponse.m */; };
 		A277C7811BEB61E7007E7A93 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = A277C7801BEB61E7007E7A93 /* Match.m */; };
+		A2F0B0621BEC8E4C009B8095 /* WatchServiceCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F0B0611BEC8E4C009B8095 /* WatchServiceCalls.m */; };
+		A2F3560D1BEB867B00D451EE /* InterfaceRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F3560C1BEB867B00D451EE /* InterfaceRowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -291,6 +294,8 @@
 		4EEFD8341BEB58D80032FE82 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
 		4EEFD8361BEB58D80032FE82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EEFD8381BEB58D80032FE82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A256D9081BECBD1D00C58981 /* MatchDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDetailController.h; sourceTree = "<group>"; };
+		A256D9091BECBD1D00C58981 /* MatchDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDetailController.m; sourceTree = "<group>"; };
 		A277C76D1BEB5E84007E7A93 /* MatchListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchListView.h; sourceTree = "<group>"; };
 		A277C76E1BEB5E84007E7A93 /* MatchListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchListView.m; sourceTree = "<group>"; };
 		A277C7711BEB5EC3007E7A93 /* MatchListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchListView.xib; sourceTree = "<group>"; };
@@ -302,6 +307,10 @@
 		A277C77D1BEB61AD007E7A93 /* MatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResponse.m; sourceTree = "<group>"; };
 		A277C77F1BEB61E7007E7A93 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		A277C7801BEB61E7007E7A93 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		A2F0B0601BEC8E4C009B8095 /* WatchServiceCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchServiceCalls.h; sourceTree = "<group>"; };
+		A2F0B0611BEC8E4C009B8095 /* WatchServiceCalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchServiceCalls.m; sourceTree = "<group>"; };
+		A2F3560B1BEB867B00D451EE /* InterfaceRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceRowController.h; sourceTree = "<group>"; };
+		A2F3560C1BEB867B00D451EE /* InterfaceRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceRowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -796,8 +805,14 @@
 			children = (
 				4EEFD82A1BEB58D80032FE82 /* InterfaceController.h */,
 				4EEFD82B1BEB58D80032FE82 /* InterfaceController.m */,
+				A2F3560B1BEB867B00D451EE /* InterfaceRowController.h */,
+				A2F3560C1BEB867B00D451EE /* InterfaceRowController.m */,
+				A256D9081BECBD1D00C58981 /* MatchDetailController.h */,
+				A256D9091BECBD1D00C58981 /* MatchDetailController.m */,
 				4EEFD82D1BEB58D80032FE82 /* ExtensionDelegate.h */,
 				4EEFD82E1BEB58D80032FE82 /* ExtensionDelegate.m */,
+				A2F0B0601BEC8E4C009B8095 /* WatchServiceCalls.h */,
+				A2F0B0611BEC8E4C009B8095 /* WatchServiceCalls.m */,
 				4EEFD8301BEB58D80032FE82 /* NotificationController.h */,
 				4EEFD8311BEB58D80032FE82 /* NotificationController.m */,
 				4EEFD8331BEB58D80032FE82 /* GlanceController.h */,
@@ -1086,8 +1101,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A256D90A1BECBD1D00C58981 /* MatchDetailController.m in Sources */,
 				4EEFD82F1BEB58D80032FE82 /* ExtensionDelegate.m in Sources */,
+				A2F0B0621BEC8E4C009B8095 /* WatchServiceCalls.m in Sources */,
 				4EEFD82C1BEB58D80032FE82 /* InterfaceController.m in Sources */,
+				A2F3560D1BEB867B00D451EE /* InterfaceRowController.m in Sources */,
 				4EEFD8321BEB58D80032FE82 /* NotificationController.m in Sources */,
 				4EEFD8351BEB58D80032FE82 /* GlanceController.m in Sources */,
 			);

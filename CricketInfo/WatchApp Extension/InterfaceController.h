@@ -10,6 +10,8 @@
 #import <Foundation/Foundation.h>
 #import <WatchConnectivity/WatchConnectivity.h>
 
-@interface InterfaceController : WKInterfaceController <WCSessionDelegate>
-
+@interface InterfaceController : WKInterfaceController <WCSessionDelegate>{
+    NSArray *_matchList;
+}
+@property (weak, nonatomic) IBOutlet WKInterfaceTable *interfaceTable;
 @end

@@ -1,21 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14A389" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Cricket Info-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider=""/>
+                <controller identifier="InterfaceController" title="Cricket Info" id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <label height="30" alignment="center" text="List of Live Matches" textAlignment="center" id="FEc-Ne-K6W">
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                        </label>
+                        <table alignment="left" spacing="8" id="gcr-uU-aMM">
+                            <items>
+                                <tableRow identifier="default" id="ZJv-i5-Xx4" customClass="InterfaceRowController">
+                                    <group key="rootItem" width="1" alignment="left" layout="vertical" id="ISI-oQ-qBO">
+                                        <items>
+                                            <label width="1" height="1" alignment="left" text="Label" textAlignment="center" numberOfLines="2" minimumScaleFactor="0.59999999999999998" id="8ok-Ip-kMV">
+                                                <fontDescription key="font" type="system" pointSize="13"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="elementLabel" destination="8ok-Ip-kMV" id="KZi-2y-Ayd"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow id="zAa-6t-67N">
+                                    <group key="rootItem" width="1" alignment="left" id="Qo1-oV-nvF"/>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="interfaceTable" destination="gcr-uU-aMM" id="jvZ-Gs-gzd"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
+        </scene>
+        <!--Match Details-->
+        <scene sceneID="rTa-4g-gnH">
+            <objects>
+                <controller identifier="MatchDetail" title="Match Details" id="JG6-E8-KV0" customClass="MatchDetailController">
+                    <items>
+                        <group width="1" alignment="left" animationDuration="1" layout="vertical" spacing="0.0" id="LJQ-F0-08o">
+                            <items>
+                                <label width="1" height="19" alignment="left" textAlignment="center" numberOfLines="0" id="oQh-J2-zy1">
+                                    <fontDescription key="font" type="boldSystem" pointSize="15"/>
+                                </label>
+                                <label alignment="center" textAlignment="center" numberOfLines="0" id="xxV-d6-EZW">
+                                    <fontDescription key="font" type="system" weight="thin" pointSize="14"/>
+                                </label>
+                                <label alignment="center" textAlignment="center" numberOfLines="0" id="9Ci-r7-9IS">
+                                    <fontDescription key="font" type="system" weight="thin" pointSize="14"/>
+                                </label>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="10"/>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="PI7-9c-vsM">
+                            <items>
+                                <label alignment="center" text="Match Summary" textAlignment="center" id="ADe-dW-zbb">
+                                    <fontDescription key="font" type="boldSystem" pointSize="15"/>
+                                </label>
+                                <label alignment="center" textAlignment="center" numberOfLines="0" id="luu-VS-He7">
+                                    <fontDescription key="font" type="system" weight="thin" pointSize="14"/>
+                                </label>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="batsmenLabel" destination="xxV-d6-EZW" id="E0y-Z6-Qxg"/>
+                        <outlet property="bowlerLabel" destination="9Ci-r7-9IS" id="2Vt-Xu-GLF"/>
+                        <outlet property="matchSummaryLabel" destination="luu-VS-He7" id="Ul0-wk-NfE"/>
+                        <outlet property="scoreLabel" destination="oQh-J2-zy1" id="xUp-Ec-vP2"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="493" y="347"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
             <objects>
-                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModuleProvider="">
+                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController">
                     <items>
                         <group alignment="left" id="t8f-Gd-c4y"/>
                         <group alignment="left" id="uCw-4Q-Ouw"/>
@@ -44,9 +113,10 @@
         <!--Notification Controller-->
         <scene sceneID="KIl-fV-djm">
             <objects>
-                <controller id="gdX-wl-uQE" customClass="NotificationController" customModuleProvider=""/>
+                <controller id="gdX-wl-uQE" customClass="NotificationController"/>
             </objects>
             <point key="canvasLocation" x="553" y="1001"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.96470594409999999" green="0.7254902124" blue="0.054901964960000001" alpha="1" colorSpace="deviceRGB"/>
 </document>

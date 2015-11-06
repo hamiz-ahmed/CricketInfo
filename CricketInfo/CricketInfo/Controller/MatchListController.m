@@ -27,6 +27,8 @@
         [session activateSession];
         
     }
+    
+   // [self tr1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,6 +128,32 @@
     
     
 
+}
+
+
+-(void)tr1{
+    NSURLRequest* requestForWeatherData = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://cricscore-api.appspot.com/csa"]];
+    //NSURLResponse* response = nil;
+    // NSError* error = nil; //do it always
+    
+    // NSData* data = [NSURLConnection sendSynchronousRequest:requestForWeatherData returningResponse:&response error:&error]; //for saving all of received data in non-serialized view
+    
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:requestForWeatherData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        NSMutableDictionary *allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error]; //data in serialized view
+        NSString* currentWeather = nil;
+        NSLog(@"%@",allData);
+        /* NSArray* weather = allData[@"weather"];
+         
+         for (NSDictionary* weatherDictionary in weather)
+         {
+         currentWeather = weatherDictionary[@"main"];
+         }*/
+        
+    }] resume];
+    
+    
 }
 
 

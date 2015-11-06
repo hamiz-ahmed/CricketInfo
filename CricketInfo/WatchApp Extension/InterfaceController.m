@@ -7,8 +7,8 @@
 //
 
 #import "InterfaceController.h"
-
-
+#import "InterfaceRowController.h"
+#import "WatchServiceCalls.h"
 @interface InterfaceController()
 
 @end
@@ -23,11 +23,8 @@
         WCSession* session = WCSession.defaultSession;
         session.delegate = self;
         [session activateSession];
-        
     }
-    
-    
-    
+    [self getMatchListData];
 }
 
 - (void)willActivate {
@@ -42,26 +39,47 @@
 
 - (void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *, id> *)message replyHandler:(void(^)(NSDictionary<NSString *, id> *replyMessage))replyHandler
 {
-    
     if(message){
-        
-        NSDictionary* messageReceived = message;
-        NSLog(@"Received Message in watch: %@",messageReceived);
-//       // [self.replyLabel setText:command];
-//        
-//        NSString* otherCounter = [message objectForKey:@"counter"];
-//        
-//        
-//        NSDictionary* response = @{@"response" : [NSString stringWithFormat:@"Message %@ received.",otherCounter]} ;
-//        
-//        
-//        if (replyHandler != nil) replyHandler(response);
-//        
-        
+//        _matchList = [[NSArray alloc] init];
+//        _matchList = (NSArray*)message;
+//        [self loadTableRows];
     }
     
     
 }
+
+- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
+    //NSDictionary *rowData = self.elementsList[rowIndex];
+    NSDictionary *data = @{@"id":[[_matchList objectAtIndex:rowIndex] objectForKey:@"id"]};
+    
+    [self pushControllerWithName:@"MatchDetail" context:data];
+}
+
+- (void)loadTableRows {
+    [self.interfaceTable setNumberOfRows:_matchList.count withRowType:@"default"];
+    [_matchList enumerateObjectsUsingBlock:^(NSDictionary *rowData, NSUInteger idx, BOOL *stop) {
+        InterfaceRowController *elementRow = [self.interfaceTable rowControllerAtIndex:idx];
+        [elementRow.elementLabel setText:[NSString stringWithFormat:@"%@ vs %@",[rowData objectForKey:@"t1"],[rowData objectForKey:@"t2"]]];
+        elementRow.matchID = (int)[rowData objectForKey:@"id"];
+    }];
+}
+
+
+-(void)initializeMatchList:(NSArray*)data{
+    _matchList = [[NSArray alloc] init];
+    _matchList = data;
+}
+
+-(void)getMatchListData{
+    [WatchServiceCalls httpRequest:@"csa" onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSMutableDictionary *allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        [self initializeMatchList:(NSArray*)allData];
+        [self loadTableRows];
+    }];
+}
+    
+
+
 
 @end
 
