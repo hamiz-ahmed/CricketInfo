@@ -20,15 +20,46 @@
     MatchListController *c = [[MatchListController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:c];
     self.window.rootViewController = navigationController;
-    
+
+
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    [self setupLocalNotifications];
     [self.window makeKeyAndVisible];
     return YES;
-    
-    return YES;
+}
+
+- (void)setupLocalNotifications {
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+
+    // current time plus 10 secs
+    NSDate *now = [NSDate date];
+    NSDate *dateToFire = [now dateByAddingTimeInterval:10];
+
+    NSLog(@"now time: %@", now);
+    NSLog(@"fire time: %@", dateToFire);
+
+    localNotification.fireDate = dateToFire;
+    localNotification.alertBody = @"Time to get up!";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.applicationIconBadgeNumber = 1; // increment
+
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Object 1", @"Key 1", @"Object 2", @"Key 2", nil];
+    localNotification.userInfo = infoDict;
+
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 +(AppDelegate*)getInstance{
     return (AppDelegate*)[[UIApplication sharedApplication] delegate];
+}
+
+-(void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+
+    NSLog(@" local notification was received");
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
