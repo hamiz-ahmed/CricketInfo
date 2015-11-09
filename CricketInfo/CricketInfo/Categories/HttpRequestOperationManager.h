@@ -6,17 +6,18 @@
 //  Copyright (c) 2015 10Pearls. All rights reserved..
 //
 
-#import "AFHTTPRequestOperationManager.h"
+#import "AFHTTPSessionManager.h"
 #import "Enum.h"
+#import "URLSessionDataTask.h"
 
-@interface HttpRequestOperationManager : AFHTTPRequestOperationManager
+@interface HttpRequestOperationManager : AFHTTPSessionManager
 
 
-- (AFHTTPRequestOperation *)makeHttpRequestWithMethod:(HttpMethod)method
-                                            URLString:(NSString *)URLString
-                                           parameters:(id)parameters
-                                              success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (NSURLSessionDataTask *)makeHttpRequestWithMethod:(HttpMethod)method
+                                          URLString:(NSString *)URLString
+                                         parameters:(id)parameters
+                                            success:(void (^)(URLSessionDataTask *operation, id responseObject))success
+                                            failure:(void (^)(URLSessionDataTask *operation, NSError *error))failure ;
 
 
 -(void) setHttpHeaders:(NSDictionary *)headers;

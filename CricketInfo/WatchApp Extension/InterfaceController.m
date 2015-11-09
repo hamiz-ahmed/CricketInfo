@@ -7,6 +7,7 @@
 //
 
 #import "InterfaceController.h"
+#import "HttpRequestManager.h"
 
 
 @interface InterfaceController()
@@ -25,6 +26,12 @@
         [session activateSession];
         
     }
+
+    [[HttpRequestManager new] get:@"https://cricscore-api.appspot.com/csa" success:^(id response) {
+        NSLog(@"%@", response);
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error.localizedDescription);
+    } entity:nil];
     
     
     
