@@ -29,26 +29,36 @@
     
     NSString *getMatchDetailsURL = [NSString stringWithFormat:@"csa?id=%d",_MatchID];
     [WatchServiceCalls httpRequest:getMatchDetailsURL onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self.loadingLabel setText:@"Match Summary"];
         _allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        [self modifyDescriptionString:[[_allData firstObject] objectForKey:@"de"]];
+        [self setMatchDescriptionString:[[_allData firstObject] objectForKey:@"de"]];
         [_matchSummaryLabel setText:[[_allData firstObject] objectForKey:@"si"]];
-      //  [self initializeMatchList:(NSArray*)allData];
-     //   [self loadTableRows];
+
     }];
 }
 
--(void)modifyDescriptionString:(NSString*)description{
+-(void)setMatchDescriptionString:(NSString*)description{
     NSArray *descriptionList = [description componentsSeparatedByString:@","];
     NSString *score = [descriptionList firstObject];
-    NSString *batsman1 = [descriptionList objectAtIndex:1];
-    NSString *batsman2 = [descriptionList objectAtIndex:2];
-    NSString *bowler = [descriptionList objectAtIndex:3];
     score=[score stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    bowler=[bowler stringByReplacingOccurrencesOfString:@")" withString:@""];
-    [_scoreLabel setText:score];
-    [_batsmenLabel setText:[NSString stringWithFormat:@"%@, %@",batsman1,batsman2]];
-    [_bowlerLabel setText:bowler];
+    [self.scoreLabel setText:score];
+    [self.matchDetailsLabel setText:[self getMatchDetailsString:descriptionList]];
 }
+
+
+
+-(NSString*)getMatchDetailsString:(NSArray*)matchDetailsList{
+    NSMutableString *details = [[NSMutableString alloc] init];
+    for(int i=0;i<[matchDetailsList count];i++){
+        if(i==[matchDetailsList count]-1)
+            [details appendString:[NSString stringWithFormat:@"%@",[matchDetailsList objectAtIndex:i]]];
+        else
+            [details appendString:[NSString stringWithFormat:@"%@ \n",[matchDetailsList objectAtIndex:i]]];
+            
+    }
+    return [details stringByReplacingOccurrencesOfString:@")" withString:@""];
+}
+
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user

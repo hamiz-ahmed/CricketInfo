@@ -53,15 +53,12 @@
                                 <label alignment="center" textAlignment="center" numberOfLines="0" id="xxV-d6-EZW">
                                     <fontDescription key="font" type="system" weight="thin" pointSize="14"/>
                                 </label>
-                                <label alignment="center" textAlignment="center" numberOfLines="0" id="9Ci-r7-9IS">
-                                    <fontDescription key="font" type="system" weight="thin" pointSize="14"/>
-                                </label>
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="10"/>
                         </group>
                         <group width="1" alignment="left" layout="vertical" id="PI7-9c-vsM">
                             <items>
-                                <label alignment="center" text="Match Summary" textAlignment="center" id="ADe-dW-zbb">
+                                <label alignment="center" text="Loading..." textAlignment="center" id="ADe-dW-zbb">
                                     <fontDescription key="font" type="boldSystem" pointSize="15"/>
                                 </label>
                                 <label alignment="center" textAlignment="center" numberOfLines="0" id="luu-VS-He7">
@@ -72,8 +69,8 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="batsmenLabel" destination="xxV-d6-EZW" id="E0y-Z6-Qxg"/>
-                        <outlet property="bowlerLabel" destination="9Ci-r7-9IS" id="2Vt-Xu-GLF"/>
+                        <outlet property="loadingLabel" destination="ADe-dW-zbb" id="Mnf-pZ-Pj8"/>
+                        <outlet property="matchDetailsLabel" destination="xxV-d6-EZW" id="Eac-Km-MJH"/>
                         <outlet property="matchSummaryLabel" destination="luu-VS-He7" id="Ul0-wk-NfE"/>
                         <outlet property="scoreLabel" destination="oQh-J2-zy1" id="xUp-Ec-vP2"/>
                     </connections>
