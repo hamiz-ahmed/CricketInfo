@@ -45,6 +45,16 @@
             <objects>
                 <controller identifier="MatchDetail" title="Match Details" id="JG6-E8-KV0" customClass="MatchDetailController">
                     <items>
+                        <group width="1" height="30" alignment="left" id="2eV-yA-c6l">
+                            <items>
+                                <imageView height="1" alignment="center" contentMode="scaleAspectFit" id="sFU-a8-PJy"/>
+                                <label alignment="center" verticalAlignment="center" text="vs" id="7mv-l4-WUe">
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                                <imageView height="1" alignment="center" contentMode="scaleAspectFit" id="c7h-ud-lxQ"/>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                        </group>
                         <group width="1" alignment="left" animationDuration="1" layout="vertical" spacing="0.0" id="LJQ-F0-08o">
                             <items>
                                 <label width="1" height="19" alignment="left" textAlignment="center" numberOfLines="0" id="oQh-J2-zy1">
@@ -54,9 +64,9 @@
                                     <fontDescription key="font" type="system" weight="thin" pointSize="14"/>
                                 </label>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="10"/>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
                         </group>
-                        <group width="1" alignment="left" layout="vertical" id="PI7-9c-vsM">
+                        <group width="1" alignment="left" contentMode="scaleAspectFit" layout="vertical" id="PI7-9c-vsM">
                             <items>
                                 <label alignment="center" text="Loading..." textAlignment="center" id="ADe-dW-zbb">
                                     <fontDescription key="font" type="boldSystem" pointSize="15"/>
@@ -69,6 +79,9 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="flagGroup" destination="2eV-yA-c6l" id="7L6-J9-bwv"/>
+                        <outlet property="flagTeam1" destination="sFU-a8-PJy" id="US2-q3-7HU"/>
+                        <outlet property="flagTeam2" destination="c7h-ud-lxQ" id="3Vg-Gn-ZQK"/>
                         <outlet property="loadingLabel" destination="ADe-dW-zbb" id="Mnf-pZ-Pj8"/>
                         <outlet property="matchDetailsLabel" destination="xxV-d6-EZW" id="Eac-Km-MJH"/>
                         <outlet property="matchSummaryLabel" destination="luu-VS-He7" id="Ul0-wk-NfE"/>
@@ -83,7 +96,11 @@
             <objects>
                 <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y"/>
+                        <group alignment="left" id="t8f-Gd-c4y">
+                            <items>
+                                <label alignment="left" text="Trying Glance" id="mfl-m4-820"/>
+                            </items>
+                        </group>
                         <group alignment="left" id="uCw-4Q-Ouw"/>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
@@ -95,9 +112,6 @@
         <scene sceneID="AEw-b0-oYE">
             <objects>
                 <notificationController id="YCC-NB-fut">
-                    <items>
-                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
-                    </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
@@ -110,7 +124,11 @@
         <!--Notification Controller-->
         <scene sceneID="KIl-fV-djm">
             <objects>
-                <controller id="gdX-wl-uQE" customClass="NotificationController"/>
+                <controller id="gdX-wl-uQE" customClass="NotificationController" colorLabel="IBBuiltInLabel-Gray">
+                    <items>
+                        <label alignment="left" text="Wicket Alert: NZ 153/9" numberOfLines="0" id="XkS-y5-khE"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="553" y="1001"/>
         </scene>

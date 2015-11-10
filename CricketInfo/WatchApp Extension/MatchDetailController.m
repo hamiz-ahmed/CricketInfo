@@ -8,6 +8,7 @@
 
 #import "MatchDetailController.h"
 #import "WatchServiceCalls.h"
+#import "Resource.h"
 @interface MatchDetailController ()
 
 @end
@@ -17,13 +18,29 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     NSLog(@"%@",context);
-    _MatchID=[(NSNumber*)[context objectForKey:@"id"] intValue];
-    NSLog(@"%d",_MatchID);
+    //_MatchID=[(NSNumber*)[context objectForKey:@"id"] intValue];
+    [self setDetailVariables:context];
     [self getMatchDetails];
+    [self setFlags];
+   // [_group setHidden:YES];
     // Configure interface objects here.
 }
 
-
+-(void)setFlags{
+    NSString *flag1 = [[Resource instance] getFlag:_team1];
+    NSString *flag2 = [[Resource instance] getFlag:_team2];
+    if(flag1 && flag2){
+        [self.flagTeam1 setImage:[UIImage imageNamed:flag1]];
+        [self.flagTeam2 setImage:[UIImage imageNamed:flag2]];
+        return;
+    }
+    [self.flagGroup setHidden:YES];
+}
+-(void)setDetailVariables:(NSDictionary*)data{
+    _MatchID=[(NSNumber*)[data objectForKey:@"id"] intValue];
+    _team1 =[data objectForKey:@"t1"];
+    _team2 = [data objectForKey:@"t2"];
+}
 
 -(void)getMatchDetails{
     
@@ -49,7 +66,7 @@
 
 -(NSString*)getMatchDetailsString:(NSArray*)matchDetailsList{
     NSMutableString *details = [[NSMutableString alloc] init];
-    for(int i=0;i<[matchDetailsList count];i++){
+    for(int i=1;i<[matchDetailsList count];i++){
         if(i==[matchDetailsList count]-1)
             [details appendString:[NSString stringWithFormat:@"%@",[matchDetailsList objectAtIndex:i]]];
         else
