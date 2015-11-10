@@ -24,6 +24,7 @@
         session.delegate = self;
         [session activateSession];
     }
+    
     [self getMatchListData];
 }
 
@@ -50,7 +51,7 @@
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
     //NSDictionary *rowData = self.elementsList[rowIndex];
-    NSDictionary *data = @{@"id":[[_matchList objectAtIndex:rowIndex] objectForKey:@"id"]};
+    NSDictionary *data = @{@"id":[[_matchList objectAtIndex:rowIndex] objectForKey:@"id"],@"t1":[[_matchList objectAtIndex:rowIndex] objectForKey:@"t1"],@"t2":[[_matchList objectAtIndex:rowIndex] objectForKey:@"t2"]};
     
     [self pushControllerWithName:@"MatchDetail" context:data];
 }

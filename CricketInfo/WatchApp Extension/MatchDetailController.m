@@ -8,6 +8,7 @@
 
 #import "MatchDetailController.h"
 #import "WatchServiceCalls.h"
+#import "Resource.h"
 @interface MatchDetailController ()
 
 @end
@@ -17,38 +18,64 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     NSLog(@"%@",context);
-    _MatchID=[(NSNumber*)[context objectForKey:@"id"] intValue];
-    NSLog(@"%d",_MatchID);
+    //_MatchID=[(NSNumber*)[context objectForKey:@"id"] intValue];
+    [self setDetailVariables:context];
     [self getMatchDetails];
+    [self setFlags];
+   // [_group setHidden:YES];
     // Configure interface objects here.
 }
 
-
+-(void)setFlags{
+    NSString *flag1 = [[Resource instance] getFlag:_team1];
+    NSString *flag2 = [[Resource instance] getFlag:_team2];
+    if(flag1 && flag2){
+        [self.flagTeam1 setImage:[UIImage imageNamed:flag1]];
+        [self.flagTeam2 setImage:[UIImage imageNamed:flag2]];
+        return;
+    }
+    [self.flagGroup setHidden:YES];
+}
+-(void)setDetailVariables:(NSDictionary*)data{
+    _MatchID=[(NSNumber*)[data objectForKey:@"id"] intValue];
+    _team1 =[data objectForKey:@"t1"];
+    _team2 = [data objectForKey:@"t2"];
+}
 
 -(void)getMatchDetails{
     
     NSString *getMatchDetailsURL = [NSString stringWithFormat:@"csa?id=%d",_MatchID];
     [WatchServiceCalls httpRequest:getMatchDetailsURL onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self.loadingLabel setText:@"Match Summary"];
         _allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        [self modifyDescriptionString:[[_allData firstObject] objectForKey:@"de"]];
+        [self setMatchDescriptionString:[[_allData firstObject] objectForKey:@"de"]];
         [_matchSummaryLabel setText:[[_allData firstObject] objectForKey:@"si"]];
-      //  [self initializeMatchList:(NSArray*)allData];
-     //   [self loadTableRows];
+
     }];
 }
 
--(void)modifyDescriptionString:(NSString*)description{
+-(void)setMatchDescriptionString:(NSString*)description{
     NSArray *descriptionList = [description componentsSeparatedByString:@","];
     NSString *score = [descriptionList firstObject];
-    NSString *batsman1 = [descriptionList objectAtIndex:1];
-    NSString *batsman2 = [descriptionList objectAtIndex:2];
-    NSString *bowler = [descriptionList objectAtIndex:3];
     score=[score stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    bowler=[bowler stringByReplacingOccurrencesOfString:@")" withString:@""];
-    [_scoreLabel setText:score];
-    [_batsmenLabel setText:[NSString stringWithFormat:@"%@, %@",batsman1,batsman2]];
-    [_bowlerLabel setText:bowler];
+    [self.scoreLabel setText:score];
+    [self.matchDetailsLabel setText:[self getMatchDetailsString:descriptionList]];
 }
+
+
+
+-(NSString*)getMatchDetailsString:(NSArray*)matchDetailsList{
+    NSMutableString *details = [[NSMutableString alloc] init];
+    for(int i=1;i<[matchDetailsList count];i++){
+        if(i==[matchDetailsList count]-1)
+            [details appendString:[NSString stringWithFormat:@"%@",[matchDetailsList objectAtIndex:i]]];
+        else
+            [details appendString:[NSString stringWithFormat:@"%@ \n",[matchDetailsList objectAtIndex:i]]];
+            
+    }
+    return [details stringByReplacingOccurrencesOfString:@")" withString:@""];
+}
+
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user

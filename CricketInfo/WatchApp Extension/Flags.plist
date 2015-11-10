@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Pakistan</key>
+	<string>pakistan_flag</string>
+	<key>India</key>
+	<string>india_flag</string>
+	<key>Australia</key>
+	<string>australia_flag</string>
+	<key>New Zealand</key>
+	<string>newzealand_flag</string>
+	<key>South Africa</key>
+	<string>southafrica_flag</string>
+	<key>Sri Lanka</key>
+	<string>srilanka_flag</string>
+	<key>West Indies</key>
+	<string>westindies_flag</string>
+	<key>Bangladesh</key>
+	<string>bangladesh_flag</string>
+	<key>Afghanistan</key>
+	<string>afghanistan_flag</string>
+	<key>England</key>
+	<string>england_flag</string>
+	<key>Zimbabwe</key>
+	<string>zimbabwe_flag</string>
+</dict>
+</plist>
