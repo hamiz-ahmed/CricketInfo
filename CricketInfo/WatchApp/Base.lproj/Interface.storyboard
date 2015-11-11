@@ -57,7 +57,7 @@
                         </group>
                         <group width="1" alignment="left" animationDuration="1" layout="vertical" spacing="0.0" id="LJQ-F0-08o">
                             <items>
-                                <label width="1" height="19" alignment="left" textAlignment="center" numberOfLines="0" id="oQh-J2-zy1">
+                                <label width="1" alignment="left" textAlignment="center" numberOfLines="0" id="oQh-J2-zy1">
                                     <fontDescription key="font" type="boldSystem" pointSize="15"/>
                                 </label>
                                 <label alignment="center" textAlignment="center" numberOfLines="0" id="xxV-d6-EZW">
@@ -98,12 +98,42 @@
                     <items>
                         <group alignment="left" id="t8f-Gd-c4y">
                             <items>
-                                <label alignment="left" text="Trying Glance" id="mfl-m4-820"/>
+                                <imageView alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="aPn-Va-17M"/>
+                                <label width="20" alignment="left" verticalAlignment="center" text="vs" textAlignment="center" id="w4J-dW-RTp">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                                <imageView alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="0CH-qR-vgw"/>
                             </items>
                         </group>
-                        <group alignment="left" id="uCw-4Q-Ouw"/>
+                        <group alignment="left" layout="vertical" id="uCw-4Q-Ouw">
+                            <items>
+                                <label alignment="left" textAlignment="left" numberOfLines="2" minimumScaleFactor="0.5" id="uxJ-Aq-RDJ">
+                                    <color key="textColor" red="0.98039221759999995" green="0.78431379800000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="26"/>
+                                </label>
+                                <label alignment="left" textAlignment="center" id="JXk-mO-QWz">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="15"/>
+                                </label>
+                                <label alignment="left" text="Loading..." id="6Fc-cs-g1y">
+                                    <fontDescription key="font" type="boldSystem" pointSize="11"/>
+                                </label>
+                                <label alignment="left" numberOfLines="0" id="7JQ-vc-6lQ">
+                                    <fontDescription key="font" type="system" weight="thin" pointSize="11"/>
+                                </label>
+                            </items>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="flagGroup" destination="t8f-Gd-c4y" id="iDq-Fo-ZOO"/>
+                        <outlet property="flagTeam1" destination="aPn-Va-17M" id="h1w-vd-1hM"/>
+                        <outlet property="flagTeam2" destination="0CH-qR-vgw" id="e9a-U3-wk8"/>
+                        <outlet property="matchSummary" destination="6Fc-cs-g1y" id="v8E-9U-dmV"/>
+                        <outlet property="oversLabel" destination="JXk-mO-QWz" id="xCT-DS-0Vf"/>
+                        <outlet property="scoreLabel" destination="uxJ-Aq-RDJ" id="ZCG-nn-iD9"/>
+                        <outlet property="summaryLabel" destination="7JQ-vc-6lQ" id="rpi-Zj-J47"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="235" y="672"/>

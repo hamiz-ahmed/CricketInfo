@@ -9,6 +9,7 @@
 #import "MatchDetailController.h"
 #import "WatchServiceCalls.h"
 #import "Resource.h"
+#import "UserDefaults.h"
 @interface MatchDetailController ()
 
 @end
@@ -18,12 +19,10 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     NSLog(@"%@",context);
-    //_MatchID=[(NSNumber*)[context objectForKey:@"id"] intValue];
     [self setDetailVariables:context];
+    [UserDefaults setFollowedMatchTeams:context];
     [self getMatchDetails];
     [self setFlags];
-   // [_group setHidden:YES];
-    // Configure interface objects here.
 }
 
 -(void)setFlags{
@@ -43,13 +42,14 @@
 }
 
 -(void)getMatchDetails{
-    
     NSString *getMatchDetailsURL = [NSString stringWithFormat:@"csa?id=%d",_MatchID];
     [WatchServiceCalls httpRequest:getMatchDetailsURL onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
         [self.loadingLabel setText:@"Match Summary"];
         _allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         [self setMatchDescriptionString:[[_allData firstObject] objectForKey:@"de"]];
         [_matchSummaryLabel setText:[[_allData firstObject] objectForKey:@"si"]];
+        NSString *matchSummary = [[_allData firstObject] objectForKey:@"si"];
+        [UserDefaults setMatchScore:matchSummary];
 
     }];
 }
@@ -61,8 +61,6 @@
     [self.scoreLabel setText:score];
     [self.matchDetailsLabel setText:[self getMatchDetailsString:descriptionList]];
 }
-
-
 
 -(NSString*)getMatchDetailsString:(NSArray*)matchDetailsList{
     NSMutableString *details = [[NSMutableString alloc] init];

@@ -48,6 +48,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="label" destination="T8I-XU-OL6" id="3fi-rb-bzf"/>
                 <outlet property="tableView" destination="HAp-gb-73h" id="3Uh-Lu-Lkl"/>
             </connections>
             <point key="canvasLocation" x="339.5" y="382.5"/>
