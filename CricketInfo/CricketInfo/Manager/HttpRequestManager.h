@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHttpRequestOperationManager.h"
-#import "AFHttpRequestOperation.h"
 #import "HttpRequestOperationManager.h"
-#import "AFHTTPRequestOperation+CustomProperties.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "Constant.h"
 
@@ -39,7 +36,7 @@ typedef void (^failureCallback)(NSError *error);
 - (void)get:(NSString *)string success:(successCallback)success failure:(failureCallback)failure response:(BaseResponse*)responseObject;
 - (void)delete:(NSString *)string success:(successCallback)success failure:(failureCallback)failure entity:(BaseEntity*)entity;
 - (void)delete:(NSString *)string success:(successCallback)success failure:(failureCallback)failure response:(BaseResponse*)responseObject;
--(AFHTTPRequestOperation *) makeRequestWithPath:(NSString *)path httpMethod:(HttpMethod)method parameters:(NSDictionary *)parameters success:(successCallback)success failure:(failureCallback)failure ;
+-(NSURLSessionDataTask *) makeRequestWithPath:(NSString *)path httpMethod:(HttpMethod)method parameters:(NSDictionary *)parameters success:(successCallback)success failure:(failureCallback)failure ;
 -(void) makeRequestWithURL:(NSString *)url httpMethod:(HttpMethod)method parameters:(NSDictionary *)parameters success:(successCallback)success failure:(failureCallback)failure;
 -(void) cancelAllOperations;
 -(void) setHttpHeader:(NSDictionary *) headers;

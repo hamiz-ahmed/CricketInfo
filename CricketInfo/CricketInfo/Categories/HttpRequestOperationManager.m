@@ -8,34 +8,104 @@
 
 #import "HttpRequestOperationManager.h"
 
+
 @implementation HttpRequestOperationManager
 
 
-- (AFHTTPRequestOperation *)makeHttpRequestWithMethod:(HttpMethod)method
+- (NSURLSessionDataTask *)makeHttpRequestWithMethod:(HttpMethod)method
                                                      URLString:(NSString *)URLString
                                                     parameters:(id)parameters
-                                                       success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+                                                       success:(void (^)(URLSessionDataTask *operation, id responseObject))success
+                                                       failure:(void (^)(URLSessionDataTask *operation, NSError *error))failure {
 
-    AFHTTPRequestOperation *operation;
+    NSURLSessionDataTask *operation;
 
     switch (method) {
         case HttpMethodGET:
-            operation = [self GET:URLString parameters:parameters success:success failure:failure];
+            operation = [self GET_CUSTOM:URLString parameters:parameters success:success failure:failure];
             break;
         case HttpMethodPOST:
-            operation = [self POST:URLString parameters:parameters success:success failure:failure];
+            operation = [self POST_CUSTOM:URLString parameters:parameters success:success failure:failure];
             break;
         case HttpMethodPUT:
-            operation = [self PUT:URLString parameters:parameters success:success failure:failure];
+            operation = [self PUT_CUSTOM:URLString parameters:parameters success:success failure:failure];
             break;
         case HttpMethodDELETE:
-            operation = [self DELETE:URLString parameters:parameters success:success failure:failure];
+            operation = [self DELETE_CUSTOM:URLString parameters:parameters success:success failure:failure];
             break;
         default:
             break;
     }
     return operation;
+}
+
+
+-(NSURLSessionDataTask *) GET_CUSTOM:(NSString *)URLString parameters:(id)parameters success:(void (^)(URLSessionDataTask * _Nonnull, id _Nonnull))success failure:(void (^)(URLSessionDataTask * _Nonnull, NSError * _Nonnull))failure
+{
+    return [super GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        [self onSuccess:task responseObject:responseObject success:success];
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self onFailure:task error:error failure:failure];
+    }];
+
+}
+
+-(NSURLSessionDataTask *) POST_CUSTOM:(NSString *)URLString parameters:(id)parameters success:(void (^)(URLSessionDataTask * _Nonnull, id _Nonnull))success failure:(void (^)(URLSessionDataTask * _Nonnull, NSError * _Nonnull))failure
+{
+    return [super POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        [self onSuccess:task responseObject:responseObject success:success];
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self onFailure:task error:error failure:failure];
+    }];
+    
+}
+
+-(NSURLSessionDataTask *) PUT_CUSTOM:(NSString *)URLString parameters:(id)parameters success:(void (^)(URLSessionDataTask * _Nonnull, id _Nonnull))success failure:(void (^)(URLSessionDataTask * _Nonnull, NSError * _Nonnull))failure
+{
+    return [super PUT:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        [self onSuccess:task responseObject:responseObject success:success];
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self onFailure:task error:error failure:failure];
+    }];
+    
+}
+
+-(NSURLSessionDataTask *) DELETE_CUSTOM:(NSString *)URLString parameters:(id)parameters success:(void (^)(URLSessionDataTask * _Nonnull, id _Nonnull))success failure:(void (^)(URLSessionDataTask * _Nonnull, NSError * _Nonnull))failure
+{
+    return [super DELETE:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        [self onSuccess:task responseObject:responseObject success:success];
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self onFailure:task error:error failure:failure];
+    }];
+    
+}
+
+-(void) onSuccess:(NSURLSessionDataTask *) task responseObject:(id) responseObject success:(void (^)(URLSessionDataTask *operation, id responseObject))success{
+
+    URLSessionDataTask *operation = [self updateSessionDataTask:task];
+    success(operation, responseObject);
+}
+
+-(void) onFailure:(NSURLSessionDataTask *) task error:(NSError *) error failure:(void (^)(URLSessionDataTask *operation, NSError * error))failure{
+
+    URLSessionDataTask *operation = [self updateSessionDataTask:task];
+    failure(operation, error);
+}
+
+-(URLSessionDataTask *) updateSessionDataTask:(NSURLSessionDataTask *) operation {
+
+
+    URLSessionDataTask *task = [URLSessionDataTask new];
+    task.taskDescription = operation.taskDescription;
+    task.taskIdentifier = operation.taskIdentifier;
+    task.currentRequest = operation.currentRequest;
+    task.originalRequest = operation.originalRequest;
+    task.response = operation.response;
+    return task;
 }
 
 
