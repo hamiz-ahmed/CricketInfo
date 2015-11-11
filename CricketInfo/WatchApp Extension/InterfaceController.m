@@ -7,6 +7,7 @@
 //
 
 #import "InterfaceController.h"
+#import "HttpRequestManager.h"
 #import "InterfaceRowController.h"
 #import "WatchServiceCalls.h"
 @interface InterfaceController()
