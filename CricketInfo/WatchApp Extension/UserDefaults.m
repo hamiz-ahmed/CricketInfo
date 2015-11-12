@@ -12,8 +12,11 @@
 + (NSUserDefaults*)appGroupDefaults {
     static NSUserDefaults *appGroupDefaults = nil;
     static dispatch_once_t onceToken;
-       // appGroupDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.cricketinfo.com"];
-    appGroupDefaults = [NSUserDefaults standardUserDefaults];
+    dispatch_once(&onceToken, ^{
+        appGroupDefaults = [NSUserDefaults standardUserDefaults];
+        // Do any other initialisation stuff here
+    });  // appGroupDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.cricketinfo.com"];
+    
     return appGroupDefaults;
 }
 

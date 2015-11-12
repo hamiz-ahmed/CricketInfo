@@ -27,12 +27,6 @@
             [session activateSession];
         }
         [self getMatchListData];
-        
-        /*[[HttpRequestManager new] get:@"http://static.espncricinfo.com/rss/livescores.xml" success:^(id response) {
-            NSLog(@"%@", response);
-        } failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
-        } entity:nil];*/
     }
         
     return self;
@@ -103,12 +97,13 @@
         }
     }];*/
     
-    [[HttpRequestManager new] get:@"csa" success:^(id response) {
+    [WatchServiceCalls getMatches:^(id response) {
         [self initializeMatchList:(NSArray*)response];
         [self loadTableRows];
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error.localizedDescription);
-    } entity:nil];
+    } andfailure:^(NSError *error) {
+         NSLog(@"%@",error.localizedDescription);
+    }];
+
 }
     
 

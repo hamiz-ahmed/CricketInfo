@@ -42,7 +42,7 @@
 }
 
 -(void)getMatchDetails{
-    NSString *getMatchDetailsURL = [NSString stringWithFormat:@"csa?id=%d",_MatchID];
+    /*NSString *getMatchDetailsURL = [NSString stringWithFormat:@"csa?id=%d",_MatchID];
     [WatchServiceCalls httpRequest:getMatchDetailsURL onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
         [self.loadingLabel setText:@"Match Summary"];
         _allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
@@ -51,6 +51,17 @@
         NSString *matchSummary = [[_allData firstObject] objectForKey:@"si"];
         [UserDefaults setMatchScore:matchSummary];
 
+    }];*/
+    
+    [WatchServiceCalls getMatchDetailsWithID:_MatchID withSuccess:^(id response) {
+        [self.loadingLabel setText:@"Match Summary"];
+        _allData = (NSArray*)response;
+        [self setMatchDescriptionString:[[_allData firstObject] objectForKey:@"de"]];
+        [_matchSummaryLabel setText:[[_allData firstObject] objectForKey:@"si"]];
+        NSString *matchSummary = [[_allData firstObject] objectForKey:@"si"];
+        [UserDefaults setMatchScore:matchSummary];
+    } andfailure:^(NSError *error) {
+        
     }];
 }
 

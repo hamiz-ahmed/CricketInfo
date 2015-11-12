@@ -8,6 +8,7 @@
 
 #import "WatchServiceCalls.h"
 #import "Constant.h"
+#import "HttpRequestManager.h"
 
 @implementation WatchServiceCalls
 
@@ -18,6 +19,14 @@
     
     NSURLRequest* requestForMatchData = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:150.0f];
     [[[NSURLSession sharedSession] dataTaskWithRequest:requestForMatchData completionHandler:completion] resume];
+}
+
++(void)getMatches:(successCallback)success andfailure:(failureCallback)failure{
+    [[HttpRequestManager new] get:@"csa" success:success failure:false response:nil];
+}
+
++(void)getMatchDetailsWithID:(int)matchID withSuccess:(successCallback)success andfailure:(failureCallback)failure{
+    [[HttpRequestManager new] get:[NSString stringWithFormat:@"csa?id=%d",matchID] success:success failure:false response:nil];
 }
 
 @end
