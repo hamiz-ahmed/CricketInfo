@@ -14,6 +14,7 @@
     NSArray *_allData;
     NSString *_team1;
     NSString *_team2;
+    BOOL flag;
 }
 @property (strong, nonatomic) IBOutlet WKInterfaceImage *flagTeam2;
 @property (strong, nonatomic) IBOutlet WKInterfaceGroup *flagGroup;

@@ -10,7 +10,8 @@
 #import "WatchServiceCalls.h"
 #import "Resource.h"
 #import "UserDefaults.h"
-@interface MatchDetailController ()
+#import "XMLDictionary.h"
+@interface MatchDetailController () <NSXMLParserDelegate>
 
 @end
 
@@ -23,6 +24,41 @@
     [UserDefaults setFollowedMatchTeams:context];
     [self getMatchDetails];
     [self setFlags];
+    [WatchServiceCalls getXMLwithSuccess:^(id response) {
+        [(NSXMLParser*)response setDelegate:self];
+        [(NSXMLParser*)response parse];
+    } andfailure:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    }];
+}
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName{
+    NSLog(@"%@",elementName);
+    if([elementName isEqualToString:@"title"]){
+        flag = false;
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
+ namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qualifiedName
+    attributes:(NSDictionary *)attributeDict
+{
+    // just do this for item elements
+
+    if([elementName isEqualToString:@"title"]){
+        flag = true;
+    }
+    NSLog(@"%@",elementName);
+    NSLog(@"%@",attributeDict);
+    
+    // then you just need to grab each of your attributes
+    //NSString * name = [attributeDict objectForKey:@"url"];
+    
+    // ... get the other attributes
+    
+    // when we have our various attributes, you can add them to your arrays
+    
+    // ... same for the other arrays
 }
 
 -(void)setFlags{
@@ -39,6 +75,17 @@
     _MatchID=[(NSNumber*)[data objectForKey:@"id"] intValue];
     _team1 =[data objectForKey:@"t1"];
     _team2 = [data objectForKey:@"t2"];
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    
+    
+    if(flag)
+        NSLog(@"%@",string);
+        // If the current element is one whose content we care about, append 'string'
+        // to the property that holds the content of the current element.
+        //
+    
 }
 
 -(void)getMatchDetails{

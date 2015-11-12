@@ -114,6 +114,7 @@
 		A2F0B0621BEC8E4C009B8095 /* WatchServiceCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F0B0611BEC8E4C009B8095 /* WatchServiceCalls.m */; };
 		A2F3560D1BEB867B00D451EE /* InterfaceRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F3560C1BEB867B00D451EE /* InterfaceRowController.m */; };
 		A2F732611BF20D6C001CDA4C /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F732601BF20D6C001CDA4C /* UserDefaults.m */; };
+		A2FD2E9B1BF4A05C00839B6E /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FD2E9A1BF4A05C00839B6E /* XMLDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -334,6 +335,8 @@
 		A2F3560C1BEB867B00D451EE /* InterfaceRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceRowController.m; sourceTree = "<group>"; };
 		A2F7325F1BF20D6C001CDA4C /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
 		A2F732601BF20D6C001CDA4C /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
+		A2FD2E991BF4A05C00839B6E /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		A2FD2E9A1BF4A05C00839B6E /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -626,6 +629,7 @@
 		42F60C1118ED3ED100F2A00F /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A2FD2E981BF4A03E00839B6E /* XMLDictionary */,
 				A277C7771BEB60A9007E7A93 /* Match */,
 				0B72091E1A0AAAB500162F8D /* CheckIn */,
 				42035D6A18EE72E100237D90 /* User */,
@@ -895,6 +899,15 @@
 			name = Match;
 			sourceTree = "<group>";
 		};
+		A2FD2E981BF4A03E00839B6E /* XMLDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				A2FD2E991BF4A05C00839B6E /* XMLDictionary.h */,
+				A2FD2E9A1BF4A05C00839B6E /* XMLDictionary.m */,
+			);
+			name = XMLDictionary;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1085,6 +1098,7 @@
 				42F60C2218ED3F6100F2A00F /* LoginView.m in Sources */,
 				42F60C1E18ED3F4500F2A00F /* LoginController.m in Sources */,
 				0B7209351A0AB8C600162F8D /* StringResponse.m in Sources */,
+				A2FD2E9B1BF4A05C00839B6E /* XMLDictionary.m in Sources */,
 				4EE29BFE1BECB1D2008EB1FC /* AFImageDownloader.m in Sources */,
 				A277C76F1BEB5E84007E7A93 /* MatchListView.m in Sources */,
 				0B72091D1A0AA77900162F8D /* RegistrationView.m in Sources */,

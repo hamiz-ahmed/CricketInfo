@@ -27,7 +27,6 @@ typedef void (^failureCallback)(NSError *error);
 @property(nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic,retain) NSString *accessToken;
 @property (nonatomic, strong) HttpRequestOperationManager *manager;
-
 - (void)put:(NSString *)path parameters:(id)parameters success:(successCallback)success failure:(failureCallback)failure entity:(BaseEntity*)entity;
 - (void)put:(NSString *)path parameters:(id)parameters success:(successCallback)success failure:(failureCallback)failure response:(BaseResponse*)responseObject;
 - (void)post:(NSString *)path parameters:(id)parameters success:(successCallback)success failure:(failureCallback)failure entity:(BaseEntity*)entity;
