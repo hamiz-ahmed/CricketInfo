@@ -15,3 +15,9 @@ typedef enum  {
     HttpMethodHEAD      = 4
 
 } HttpMethod;
+
+typedef enum  {
+    ContentTypeJSON       = 0,
+    ContentTypeXML      = 1,
+
+} ContentType;

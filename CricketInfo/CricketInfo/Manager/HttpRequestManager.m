@@ -48,6 +48,19 @@
     return self;
 }
 
+-(void) setResponseContentType:(ContentType) contentType {
+
+    if(contentType == ContentTypeJSON){
+        _manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    }
+    else if(contentType == ContentTypeXML) {
+
+        _manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/rss+xml"];
+
+    }
+}
+
 -(void) setHttpHeader:(NSDictionary *) headers {
 
     [_manager setHttpHeaders:headers];
