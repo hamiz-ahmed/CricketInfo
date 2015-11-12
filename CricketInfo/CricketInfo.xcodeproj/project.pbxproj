@@ -325,6 +325,9 @@
 		A277C77D1BEB61AD007E7A93 /* MatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResponse.m; sourceTree = "<group>"; };
 		A277C77F1BEB61E7007E7A93 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		A277C7801BEB61E7007E7A93 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		A2E231831BF47F370023394D /* CricketInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CricketInfo.entitlements; sourceTree = "<group>"; };
+		A2E231841BF47F440023394D /* WatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchApp.entitlements; sourceTree = "<group>"; };
+		A2E231851BF47F490023394D /* WatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchApp Extension.entitlements"; sourceTree = "<group>"; };
 		A2F0B0601BEC8E4C009B8095 /* WatchServiceCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchServiceCalls.h; sourceTree = "<group>"; };
 		A2F0B0611BEC8E4C009B8095 /* WatchServiceCalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchServiceCalls.m; sourceTree = "<group>"; };
 		A2F3560B1BEB867B00D451EE /* InterfaceRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceRowController.h; sourceTree = "<group>"; };
@@ -551,6 +554,7 @@
 		42F60BDD18ED3DE600F2A00F /* CricketInfo */ = {
 			isa = PBXGroup;
 			children = (
+				A2E231831BF47F370023394D /* CricketInfo.entitlements */,
 				4E6B5BFC1B3C21FF00499511 /* ExternalLibraries */,
 				4E32DC991B32932100B897D7 /* Categories */,
 				0B7209251A0AB46100162F8D /* Component */,
@@ -809,6 +813,7 @@
 		4EEFD8181BEB58D80032FE82 /* WatchApp */ = {
 			isa = PBXGroup;
 			children = (
+				A2E231841BF47F440023394D /* WatchApp.entitlements */,
 				4EEFD8191BEB58D80032FE82 /* Interface.storyboard */,
 				4EEFD81C1BEB58D80032FE82 /* Assets.xcassets */,
 				4EEFD81E1BEB58D80032FE82 /* Info.plist */,
@@ -819,6 +824,7 @@
 		4EEFD8271BEB58D80032FE82 /* WatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A2E231851BF47F490023394D /* WatchApp Extension.entitlements */,
 				A20600741BF0B11C000DA9D2 /* Resources */,
 				4EEFD82A1BEB58D80032FE82 /* InterfaceController.h */,
 				4EEFD82B1BEB58D80032FE82 /* InterfaceController.m */,

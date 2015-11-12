@@ -11,6 +11,7 @@
 #import "WatchServiceCalls.h"
 #import "Resource.h"
 
+
 @interface GlanceController()
 
 @end
@@ -28,19 +29,19 @@
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
     [self getMatchTeams];
-    [self setFlags];
-    [self setMatchDetails];
-    _timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+    //[self setFlags];
+    //[self setMatchDetails];
+    /*_timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
                                                   target: self
                                                 selector:@selector(fetchingMatchInfo:)
                                                 userInfo: nil repeats:YES];
-    
+    */
 }
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
-    [_timer invalidate];
+   // [_timer invalidate];
     
     
 }
@@ -59,13 +60,13 @@
 -(void)setMatchDetails{
     if(_MatchID){
         NSString *getMatchDetailsURL = [NSString stringWithFormat:@"csa?id=%d",_MatchID];
-        [WatchServiceCalls httpRequest:getMatchDetailsURL onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
+       /* [WatchServiceCalls httpRequest:getMatchDetailsURL onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
             // [self.loadingLabel setText:@"Match Summary"];
             _allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             [self.matchSummary setText:@"Match Summary:"];
             [self setScoreAndOversLabel:[[_allData firstObject] objectForKey:@"de"]];
             [self setSummaryLabelText:[[_allData firstObject] objectForKey:@"si"]];
-        }];
+        }];*/
     }
     else{
         [self.matchSummary setText:@"Follow a match in the app to activate glance"];
@@ -96,10 +97,6 @@
     }
     [self.scoreLabel setText:score];
     [self.oversLabel setText:overs];
-}
-
--(void)updateUserActivity:(NSString *)type userInfo:(NSDictionary *)userInfo webpageURL:(NSURL *)webpageURL{
-    
 }
 
 -(NSMutableAttributedString*)createVenueAttributedString:(NSString*)text{

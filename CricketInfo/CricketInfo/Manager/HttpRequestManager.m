@@ -30,8 +30,9 @@
 
         _manager= [[HttpRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:SERVICE_URL]];
         _manager.requestSerializer  = [AFJSONRequestSerializer serializer];
-        _manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/rss+xml"];
+        //_manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+        _manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+       // _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/rss+xml"];
         [_manager.operationQueue setMaxConcurrentOperationCount:1];
 
         #if TARGET_OS_IOS

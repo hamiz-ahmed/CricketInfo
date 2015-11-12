@@ -31,9 +31,12 @@
 -(NSString *) getFlag:(NSString *)countryName {
     
     [self loadPlist];
-    NSString *flag = (NSString*)[_plist objectForKey:countryName];
     
-    return flag;
+    if(countryName){
+        NSString *flag = (NSString*)[_plist objectForKey:countryName];
+        return flag;
+    }
+    return nil;
 }
 
 @end

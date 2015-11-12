@@ -10,6 +10,7 @@
 #import "HttpRequestManager.h"
 #import "InterfaceRowController.h"
 #import "WatchServiceCalls.h"
+#import "HttpRequestManager.h"
 @interface InterfaceController()
 
 @end
@@ -27,11 +28,11 @@
         }
         [self getMatchListData];
         
-        [[HttpRequestManager new] get:@"http://static.espncricinfo.com/rss/livescores.xml" success:^(id response) {
+        /*[[HttpRequestManager new] get:@"http://static.espncricinfo.com/rss/livescores.xml" success:^(id response) {
             NSLog(@"%@", response);
         } failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);
-        } entity:nil];
+        } entity:nil];*/
     }
         
     return self;
@@ -73,6 +74,7 @@
     NSDictionary *data = @{@"id":[[_matchList objectAtIndex:rowIndex] objectForKey:@"id"],@"t1":[[_matchList objectAtIndex:rowIndex] objectForKey:@"t1"],@"t2":[[_matchList objectAtIndex:rowIndex] objectForKey:@"t2"]};
     
     [self pushControllerWithName:@"MatchDetail" context:data];
+    //[self presentControllerWithName:@"MatchDetail" context:data];
 }
 
 - (void)loadTableRows {
@@ -90,7 +92,7 @@
 }
 
 -(void)getMatchListData{
-    [WatchServiceCalls httpRequest:@"csa" onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    /*[WatchServiceCalls httpRequest:@"csa" onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if(data){
             NSMutableDictionary *allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             [self initializeMatchList:(NSArray*)allData];
@@ -99,7 +101,14 @@
         else if(error){
             NSLog(@"%@",error.localizedDescription);
         }
-    }];
+    }];*/
+    
+    [[HttpRequestManager new] get:@"csa" success:^(id response) {
+        [self initializeMatchList:(NSArray*)response];
+        [self loadTableRows];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error.localizedDescription);
+    } entity:nil];
 }
     
 

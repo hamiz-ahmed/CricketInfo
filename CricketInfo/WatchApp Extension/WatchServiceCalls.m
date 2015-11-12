@@ -16,7 +16,7 @@
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@",SERVICE_URL,path];
     
-    NSURLRequest* requestForMatchData = [NSURLRequest requestWithURL:[NSURL URLWithString:URL]];
+    NSURLRequest* requestForMatchData = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:150.0f];
     [[[NSURLSession sharedSession] dataTaskWithRequest:requestForMatchData completionHandler:completion] resume];
 }
 
