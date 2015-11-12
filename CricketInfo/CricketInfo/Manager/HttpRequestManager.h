@@ -40,4 +40,5 @@ typedef void (^failureCallback)(NSError *error);
 -(void) makeRequestWithURL:(NSString *)url httpMethod:(HttpMethod)method parameters:(NSDictionary *)parameters success:(successCallback)success failure:(failureCallback)failure;
 -(void) cancelAllOperations;
 -(void) setHttpHeader:(NSDictionary *) headers;
+-(void) setResponseContentType:(ContentType) contentType;
 @end
