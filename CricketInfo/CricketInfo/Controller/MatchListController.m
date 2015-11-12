@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [super loadServices:@[@(ServiceTypeMatch) , @(ServiceTypeUser)]];
-    [self getMatchList];
+  //  [self getMatchList];
     if(WCSession.isSupported){
         WCSession* session = WCSession.defaultSession;
         session.delegate = self;

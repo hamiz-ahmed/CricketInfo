@@ -27,24 +27,26 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
-    [_initialLabel setText:[UserDefaults getMatchScore]];
     [self getMatchTeams];
     [self setFlags];
-    [self getMatchDetails];
+    [self setMatchDetails];
     _timer = [NSTimer scheduledTimerWithTimeInterval: 5.0
                                                   target: self
                                                 selector:@selector(fetchingMatchInfo:)
                                                 userInfo: nil repeats:YES];
+    
 }
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
     [_timer invalidate];
+    
+    
 }
 
 -(void)fetchingMatchInfo:(NSTimer*)timer{
-    [self getMatchDetails];
+    [self setMatchDetails];
 }
 
 -(void)getMatchTeams{
@@ -54,7 +56,7 @@
     _team2 = [teams objectForKey:@"t2"];
 }
 
--(void)getMatchDetails{
+-(void)setMatchDetails{
     if(_MatchID){
         NSString *getMatchDetailsURL = [NSString stringWithFormat:@"csa?id=%d",_MatchID];
         [WatchServiceCalls httpRequest:getMatchDetailsURL onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -64,6 +66,9 @@
             [self setScoreAndOversLabel:[[_allData firstObject] objectForKey:@"de"]];
             [self setSummaryLabelText:[[_allData firstObject] objectForKey:@"si"]];
         }];
+    }
+    else{
+        [self.matchSummary setText:@"Follow a match in the app to activate glance"];
     }
 }
 
@@ -91,6 +96,10 @@
     }
     [self.scoreLabel setText:score];
     [self.oversLabel setText:overs];
+}
+
+-(void)updateUserActivity:(NSString *)type userInfo:(NSDictionary *)userInfo webpageURL:(NSURL *)webpageURL{
+    
 }
 
 -(NSMutableAttributedString*)createVenueAttributedString:(NSString*)text{

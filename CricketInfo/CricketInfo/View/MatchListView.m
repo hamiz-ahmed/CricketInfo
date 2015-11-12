@@ -12,15 +12,6 @@
 
 
 -(void)awakeFromNib{
-        static NSUserDefaults *appGroupDefaults = nil;
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            appGroupDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.cricketinfo.com"];
-        });
-      //  NSString *firstName = @"Hamiz";
-      //  [appGroupDefaults setObject:firstName forKey:@"name"];
-        NSLog(@"%@",[appGroupDefaults objectForKey:@"name"]);
-    [_label setText:[appGroupDefaults objectForKey:@"name"]];
 
 
 }

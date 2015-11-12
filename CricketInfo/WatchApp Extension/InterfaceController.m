@@ -17,27 +17,34 @@
 
 @implementation InterfaceController
 
+-(instancetype)init{
+    self = [super init];
+    if(self){
+        if(WCSession.isSupported){
+            WCSession* session = WCSession.defaultSession;
+            session.delegate = self;
+            [session activateSession];
+        }
+        [self getMatchListData];
+        
+        [[HttpRequestManager new] get:@"http://static.espncricinfo.com/rss/livescores.xml" success:^(id response) {
+            NSLog(@"%@", response);
+        } failure:^(NSError *error) {
+            NSLog(@"%@", error.localizedDescription);
+        } entity:nil];
+    }
+        
+    return self;
+}
+
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-    
-    if(WCSession.isSupported){
-        WCSession* session = WCSession.defaultSession;
-        session.delegate = self;
-        [session activateSession];
-    }
-
-    [[HttpRequestManager new] get:@"https://cricscore-api.appspot.com/csa" success:^(id response) {
-        NSLog(@"%@", response);
-    } failure:^(NSError *error) {
-        NSLog(@"%@", error.localizedDescription);
-    } entity:nil];
-    
-    [self getMatchListData];
 }
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    
 }
 
 - (void)didDeactivate {
@@ -54,6 +61,11 @@
     }
     
     
+}
+
+- (void)handleUserActivity:(NSDictionary *)userInfo {
+    // Use data from the userInfo dictionary passed in to push to the appropriate controller with detailed info.
+    [self pushControllerWithName:@"MatchDetail" context:userInfo];
 }
 
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
@@ -74,15 +86,19 @@
 
 
 -(void)initializeMatchList:(NSArray*)data{
-    _matchList = [[NSArray alloc] init];
-    _matchList = data;
+    _matchList = [[NSArray alloc] initWithArray:data];
 }
 
 -(void)getMatchListData{
     [WatchServiceCalls httpRequest:@"csa" onCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSMutableDictionary *allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        [self initializeMatchList:(NSArray*)allData];
-        [self loadTableRows];
+        if(data){
+            NSMutableDictionary *allData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            [self initializeMatchList:(NSArray*)allData];
+            [self loadTableRows];
+        }
+        else if(error){
+            NSLog(@"%@",error.localizedDescription);
+        }
     }];
 }
     

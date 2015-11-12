@@ -333,6 +333,7 @@
 		A2F3560C1BEB867B00D451EE /* InterfaceRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceRowController.m; sourceTree = "<group>"; };
 		A2F7325F1BF20D6C001CDA4C /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
 		A2F732601BF20D6C001CDA4C /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
+		A2F88B101BF37E6900D59D11 /* WatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchApp Extension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -823,6 +824,7 @@
 		4EEFD8271BEB58D80032FE82 /* WatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A2F88B101BF37E6900D59D11 /* WatchApp Extension.entitlements */,
 				A20600741BF0B11C000DA9D2 /* Resources */,
 				4EEFD82A1BEB58D80032FE82 /* InterfaceController.h */,
 				4EEFD82B1BEB58D80032FE82 /* InterfaceController.m */,
@@ -999,6 +1001,11 @@
 					4EEFD8221BEB58D80032FE82 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = HUG6Z52JD6;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1373,6 +1380,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "WatchApp Extension/WatchApp Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1396,6 +1404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "WatchApp Extension/WatchApp Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
