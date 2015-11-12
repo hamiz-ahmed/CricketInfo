@@ -325,15 +325,12 @@
 		A277C77D1BEB61AD007E7A93 /* MatchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResponse.m; sourceTree = "<group>"; };
 		A277C77F1BEB61E7007E7A93 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		A277C7801BEB61E7007E7A93 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
-		A2A7DBCC1BF1FCD000579294 /* WatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchApp.entitlements; sourceTree = "<group>"; };
-		A2A7DBCD1BF1FCE600579294 /* CricketInfo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CricketInfo.entitlements; sourceTree = "<group>"; };
 		A2F0B0601BEC8E4C009B8095 /* WatchServiceCalls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchServiceCalls.h; sourceTree = "<group>"; };
 		A2F0B0611BEC8E4C009B8095 /* WatchServiceCalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchServiceCalls.m; sourceTree = "<group>"; };
 		A2F3560B1BEB867B00D451EE /* InterfaceRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceRowController.h; sourceTree = "<group>"; };
 		A2F3560C1BEB867B00D451EE /* InterfaceRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceRowController.m; sourceTree = "<group>"; };
 		A2F7325F1BF20D6C001CDA4C /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
 		A2F732601BF20D6C001CDA4C /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
-		A2F88B101BF37E6900D59D11 /* WatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchApp Extension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,7 +551,6 @@
 		42F60BDD18ED3DE600F2A00F /* CricketInfo */ = {
 			isa = PBXGroup;
 			children = (
-				A2A7DBCD1BF1FCE600579294 /* CricketInfo.entitlements */,
 				4E6B5BFC1B3C21FF00499511 /* ExternalLibraries */,
 				4E32DC991B32932100B897D7 /* Categories */,
 				0B7209251A0AB46100162F8D /* Component */,
@@ -813,7 +809,6 @@
 		4EEFD8181BEB58D80032FE82 /* WatchApp */ = {
 			isa = PBXGroup;
 			children = (
-				A2A7DBCC1BF1FCD000579294 /* WatchApp.entitlements */,
 				4EEFD8191BEB58D80032FE82 /* Interface.storyboard */,
 				4EEFD81C1BEB58D80032FE82 /* Assets.xcassets */,
 				4EEFD81E1BEB58D80032FE82 /* Info.plist */,
@@ -824,7 +819,6 @@
 		4EEFD8271BEB58D80032FE82 /* WatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
-				A2F88B101BF37E6900D59D11 /* WatchApp Extension.entitlements */,
 				A20600741BF0B11C000DA9D2 /* Resources */,
 				4EEFD82A1BEB58D80032FE82 /* InterfaceController.h */,
 				4EEFD82B1BEB58D80032FE82 /* InterfaceController.m */,
@@ -982,7 +976,7 @@
 						DevelopmentTeam = HUG6Z52JD6;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -994,7 +988,7 @@
 						DevelopmentTeam = HUG6Z52JD6;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1003,7 +997,7 @@
 						DevelopmentTeam = HUG6Z52JD6;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1306,7 +1300,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = CricketInfo/CricketInfo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1329,7 +1322,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = CricketInfo/CricketInfo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1380,7 +1372,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = "WatchApp Extension/WatchApp Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1404,7 +1395,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = "WatchApp Extension/WatchApp Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -1430,7 +1420,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = WatchApp/WatchApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1455,7 +1444,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = WatchApp/WatchApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
